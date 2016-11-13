@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-11-13T13:05:20.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>第一篇博客</title>
+    <link href="http://yoursite.com/2016/11/13/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2016/11/13/第一篇博客/</id>
+    <published>2016-11-13T04:17:28.000Z</published>
+    <updated>2016-11-13T13:05:20.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>&nbsp;&nbsp;&nbsp;&nbsp;本人第一篇博客，以前一直想写，但是因为懒一直没有动笔。写博客的好处在于总结经验，加深记忆。但是我一直认为自己记忆力超出常人（事实也的确如此），所以很多乱七八糟的都存在脑子里，但是时间久了有个不好的地方，知识点太嘈杂。尤其是软件，必须要形成整个系统知识网络，所以开始写博客。<br>&nbsp;&nbsp;&nbsp;&nbsp;从今天开始，我会将自己的生活感受，工作上获取到的知识，尽量的写入博客里。开源分享，这是入门极客应该做的事儿。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;本人第一篇博客，以前一直想写，但是因为懒一直没有动笔。写博客的好处在于总结经验，加深记忆。但是我一直认为自己记忆力超出常人（事实也的确如此），所以很多乱七八糟的都存在脑子里，但是时间久了有个不好的地方，知识点太嘈杂。尤其是软件
+    
+    </summary>
+    
+    
+      <category term="闲扯" scheme="http://yoursite.com/tags/%E9%97%B2%E6%89%AF/"/>
+    
+  </entry>
+  
+</feed>
