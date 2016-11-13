@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-13T14:34:47.000Z</updated>
+  <updated>2016-11-13T15:29:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -19,40 +19,40 @@
     <title>MarkDown 基本语法学习（第一篇）</title>
     <link href="http://yoursite.com/2016/11/13/MarkDown-%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B9%A0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AF%87%EF%BC%89/"/>
     <id>http://yoursite.com/2016/11/13/MarkDown-基本语法学习（第一篇）/</id>
-    <published>2016-11-13T14:32:41.000Z</published>
-    <updated>2016-11-13T14:34:47.000Z</updated>
+    <published>2016-11-13T14:32:00.000Z</published>
+    <updated>2016-11-13T15:29:56.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="MarkDown-基本语法学习（第一篇）"><a href="#MarkDown-基本语法学习（第一篇）" class="headerlink" title="MarkDown 基本语法学习（第一篇）"></a>MarkDown 基本语法学习（第一篇）</h1><h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果一段文字被设为标题，只要在段首加上<code>#</code>就可以，例如：  </p>
+    <content type="html"><![CDATA[<h1 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果一段文字被设为标题，只要在段首加上<code>#</code>就可以，例如：  </p>
 <pre><code># 一级标题  
 ## 二级标题
 ### 三级标题
 </code></pre><p>以此类推；</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;列表主要分为两种，有序和无序。  </p>
-<h3 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有序只要在前面加上数字即可，例如：  </p>
+<h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;列表主要分为两种，有序和无序。  </p>
+<h2 id="有序"><a href="#有序" class="headerlink" title="有序"></a>有序</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;有序只要在前面加上数字即可，例如：  </p>
 <pre><code>1. 你好
 2. hello
 3. 哦哈呦
-</code></pre><h3 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无序列表前面加上<code>*</code>符号就可以了。例如：  </p>
+</code></pre><h2 id="无序"><a href="#无序" class="headerlink" title="无序"></a>无序</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无序列表前面加上<code>*</code>符号就可以了。例如：  </p>
 <pre><code>* 1
 * 2
 * 3
-</code></pre><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在文中引用一处文字或者段落，可以在文本前面加上&gt;符号（大于号）。  </p>
+</code></pre><h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在文中引用一处文字或者段落，可以在文本前面加上&gt;符号（大于号）。  </p>
 <pre><code>&gt; 这里是引用。
 </code></pre><p>效果如下</p>
 <blockquote>
 <p>这里是引用  </p>
 </blockquote>
-<h2 id="图片和链接"><a href="#图片和链接" class="headerlink" title="图片和链接"></a>图片和链接</h2><h3 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;插入链接和图片的语法类似，区别在一个<code>!</code>号</p>
+<h1 id="图片和链接"><a href="#图片和链接" class="headerlink" title="图片和链接"></a>图片和链接</h1><h2 id="图片格式"><a href="#图片格式" class="headerlink" title="图片格式"></a>图片格式</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;插入链接和图片的语法类似，区别在一个<code>!</code>号</p>
 <pre><code>![](){ImgCap}{/ImgCap} //图片
 []() //链接  
 </code></pre><p>例如：  </p>
 <pre><code>[baidu]    (http://baidu.com)
 ![img](http://m2.quanjing.com/2m/fod_liv002/fo-11171537.jpg)
-</code></pre><h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粗体和斜体的区别在于<em>符号的数量，粗体用两个 *</em> 号包裹，斜体只需要一个。  </p>
+</code></pre><h1 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粗体和斜体的区别在于<em>符号的数量，粗体用两个 *</em> 号包裹，斜体只需要一个。  </p>
 <pre><code>**粗体**
 *斜体*
 </code></pre><p>效果如下：<br><strong>粗体</strong><br><em>斜体</em></p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表格比较麻烦，就用一个例子来说明吧，直接看例子就明白了。  </p>
+<h1 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;表格比较麻烦，就用一个例子来说明吧，直接看例子就明白了。  </p>
 <pre><code>| 姓名        | 年龄           | 性别  |
 | ---------|:-------------:| -----:|
 | 张三      | 22             | 男 |
@@ -85,19 +85,23 @@
 </tbody>
 </table>
 <p><code>:</code>符号代表对齐，居左代表左对齐，居右代表右对齐。左竖线一定要对齐。  </p>
-<h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代码框实现起来也很简单。只需要``将代码包裹起来就可以，这个符号一般在键盘ESC下面的那个按键。使用tab键可以进行缩进。  </p>
-<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个<code>*</code>即可。例如：<code>***</code></p>
+<h1 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h1><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代码框实现起来也很简单。只需要``将代码包裹起来就可以，这个符号一般在键盘ESC下面的那个按键。使用tab键可以进行缩进。  </p>
+<h1 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h1><p>分割线的语法只需要三个<code>*</code>即可。例如：<code>***</code></p>
 <hr>
-<h2 id="其他常规"><a href="#其他常规" class="headerlink" title="其他常规"></a>其他常规</h2><p>markdown没有空格语法，一般就是<code>&amp;nbsp;</code>即可。如果想要换行，一般是<code>space + space + enter</code>;  </p>
+<h1 id="其他常规"><a href="#其他常规" class="headerlink" title="其他常规"></a>其他常规</h1><p>markdown没有空格语法，一般就是<code>&amp;nbsp;</code>即可。如果想要换行，一般是<code>space + space + enter</code>;  </p>
 <p>今天先写到这里吧。see U next time！</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;MarkDown-基本语法学习（第一篇）&quot;&gt;&lt;a href=&quot;#MarkDown-基本语法学习（第一篇）&quot; class=&quot;headerlink&quot; title=&quot;MarkDown 基本语法学习（第一篇）&quot;&gt;&lt;/a&gt;MarkDown 基本语法学习（第一篇）&lt;/h1&gt;&lt;
+      &lt;h1 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h1&gt;&lt;p&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;如果一段文字被设为标题，只要在段首加上&lt;co
     
     </summary>
     
+      <category term="MarkDown学习" scheme="http://yoursite.com/Categories/MarkDown%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+      <category term="MarkDown" scheme="http://yoursite.com/Tags/MarkDown/"/>
     
   </entry>
   
@@ -118,7 +122,7 @@
     </summary>
     
     
-      <category term="闲扯" scheme="http://yoursite.com/tags/%E9%97%B2%E6%89%AF/"/>
+      <category term="闲扯" scheme="http://yoursite.com/Tags/%E9%97%B2%E6%89%AF/"/>
     
   </entry>
   
