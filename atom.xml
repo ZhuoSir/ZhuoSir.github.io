@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-14T14:06:26.000Z</updated>
+  <updated>2016-11-14T14:10:21.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Servlet文件上传</title>
     <link href="http://yoursite.com/2016/11/14/Servlet%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%88fileupload%E5%BC%80%E6%BA%90%E6%96%B9%E5%BC%8F%EF%BC%89/"/>
     <id>http://yoursite.com/2016/11/14/Servlet文件上传（fileupload开源方式）/</id>
-    <published>2016-11-14T14:03:25.000Z</published>
-    <updated>2016-11-14T14:06:26.000Z</updated>
+    <published>2016-11-14T14:10:00.000Z</published>
+    <updated>2016-11-14T14:10:21.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Servlet文件上传"><a href="#Servlet文件上传" class="headerlink" title="Servlet文件上传"></a>Servlet文件上传</h1><p>Servlet一般是在表单提交时候，通过Post请求将文件上传到服务器。上传的文件可以使任何文件，包括图片，文档等。这篇博客暂时只介绍通过Apache的开源包commons-fileupload的方式。首先导入两个必须的jar包：commons-fileupload，commons-io。我选用的版本是1.3.2和2.5。  </p>
 <h2 id="文件上传表单"><a href="#文件上传表单" class="headerlink" title="文件上传表单"></a>文件上传表单</h2><p>注意:  </p>
@@ -111,6 +111,10 @@ public class UploadServlet extends HttpServlet {
     
     </summary>
     
+      <category term="Servlet" scheme="http://yoursite.com/Categories/Servlet/"/>
+    
+    
+      <category term="文件上传" scheme="http://yoursite.com/Tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     
   </entry>
   
