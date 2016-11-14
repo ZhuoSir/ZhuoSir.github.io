@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-11-14T14:10:21.000Z</updated>
+  <updated>2016-11-14T14:36:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/11/14/Servlet%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%EF%BC%88fileupload%E5%BC%80%E6%BA%90%E6%96%B9%E5%BC%8F%EF%BC%89/"/>
     <id>http://yoursite.com/2016/11/14/Servlet文件上传（fileupload开源方式）/</id>
     <published>2016-11-14T14:10:00.000Z</published>
-    <updated>2016-11-14T14:10:21.000Z</updated>
+    <updated>2016-11-14T14:36:08.000Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Servlet文件上传"><a href="#Servlet文件上传" class="headerlink" title="Servlet文件上传"></a>Servlet文件上传</h1><p>Servlet一般是在表单提交时候，通过Post请求将文件上传到服务器。上传的文件可以使任何文件，包括图片，文档等。这篇博客暂时只介绍通过Apache的开源包commons-fileupload的方式。首先导入两个必须的jar包：commons-fileupload，commons-io。我选用的版本是1.3.2和2.5。  </p>
 <h2 id="文件上传表单"><a href="#文件上传表单" class="headerlink" title="文件上传表单"></a>文件上传表单</h2><p>注意:  </p>
@@ -36,72 +36,8 @@
 &lt;/form&gt;  
 </code></pre></li>
 </ul>
-<p>后端servlet  </p>
-<pre><code>    @WebServlet(name = &quot;uploadServlet&quot;, urlPatterns = &quot;/servlet/upload.do&quot;)
-public class UploadServlet extends HttpServlet {
-
-    private static final long serialVersionID = 1L;
-    private static final String UPLOAD_DIRECTORY = &quot;upload&quot;;
-    private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB
-    private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB
-    private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB
-
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
-        throws ServletException, IOException {
-        doPost(req, resp);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-            throws ServletException, IOException {
-        //通过commons-fileupload包上传
-        uploadByCommonsJar(req, resp);
-        getServletContext().getRequestDispatcher(&quot;/show.jsp&quot;)
-                .forward(req, resp);
-    }
-
-
-     private void uploadByCommonsJar(HttpServletRequest req, HttpServletResponse resp)
-                throws IOException {
-        if (!ServletFileUpload.isMultipartContent(req)) {                           // 检测是否为多媒体上传
-            PrintWriter writer = resp.getWriter();                                  // 如果不是则停止
-            writer.println(&quot;Error: 表单必须包含 enctype=multipart/form-data&quot;);
-            writer.flush();
-            return;
-        }
-        DiskFileItemFactory factory = new DiskFileItemFactory();
-        factory.setSizeThreshold(MEMORY_THRESHOLD);                                 // 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中
-        factory.setRepository(new File(System.getProperty(&quot;java.io.tmpdir&quot;)));      // 设置临时存储目录
-        ServletFileUpload upload = new ServletFileUpload(factory);
-        upload.setFileSizeMax(MAX_FILE_SIZE);                                       // 设置最大文件上传值
-        upload.setSizeMax(MAX_REQUEST_SIZE);                                        // 设置最大请求值
-        String uploadPath = getServletContext().getRealPath(&quot;./&quot;)                   // 获取上传路径
-                + File.separator + UPLOAD_DIRECTORY;
-
-           File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) {
-            uploadDir.mkdirs();
-        }
-
-        try {
-            List&lt;FileItem&gt; fileItems = upload.parseRequest(req);                    // 解析请求的内容提取文件数据
-            if (fileItems != null &amp;&amp; !fileItems.isEmpty()) {
-                for (FileItem item : fileItems) {
-                    String fileName = new File(item.getName()).getName();
-                    String filePath = uploadPath + File.separator + fileName;
-                    File storeFile = new File(filePath);
-                    System.out.println(filePath);
-                    item.write(storeFile);
-                    req.setAttribute(&quot;message&quot;, &quot;文件上传成功&quot;);
-                    }
-                }
-        } catch (Exception e) {
-                    e.printStackTrace();
-                    req.setAttribute(&quot;message&quot;, e.getMessage());
-            }
-    }
-}    
+<p>后端servlet</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line">	@WebServlet(name = &quot;uploadServlet&quot;, urlPatterns = &quot;/servlet/upload.do&quot;)</div><div class="line">public class UploadServlet extends HttpServlet &#123;</div><div class="line">   	private static final long serialVersionID = 1L;</div><div class="line">   	private static final String UPLOAD_DIRECTORY = &quot;upload&quot;;</div><div class="line">   	private static final int MEMORY_THRESHOLD = 1024 * 1024 * 3;  // 3MB</div><div class="line">   	private static final int MAX_FILE_SIZE = 1024 * 1024 * 40; // 40MB</div><div class="line">   	private static final int MAX_REQUEST_SIZE = 1024 * 1024 * 50; // 50MB</div><div class="line"></div><div class="line">   	@Override</div><div class="line">   	protected void doGet(HttpServletRequest req, HttpServletResponse resp)</div><div class="line">           throws ServletException, IOException &#123;</div><div class="line">       	doPost(req, resp);</div><div class="line">   	&#125;</div><div class="line"></div><div class="line">   	@Override</div><div class="line">   	protected void doPost(HttpServletRequest req, HttpServletResponse resp)</div><div class="line">   	        throws ServletException, IOException &#123;</div><div class="line">   	    //通过commons-fileupload包上传</div><div class="line">   	    uploadByCommonsJar(req, resp);</div><div class="line">   	    getServletContext().getRequestDispatcher(&quot;/show.jsp&quot;)</div><div class="line">   	            .forward(req, resp);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	</div><div class="line">		private void uploadByCommonsJar(HttpServletRequest req, HttpServletResponse resp)</div><div class="line">       	   	 throws IOException &#123;</div><div class="line">       	if (!ServletFileUpload.isMultipartContent(req)) &#123;                           // 检测是否为多媒体上传</div><div class="line">           	PrintWriter writer = resp.getWriter();                                  // 如果不是则停止</div><div class="line">           	writer.println(&quot;Error: 表单必须包含 enctype=multipart/form-data&quot;);</div><div class="line">           	writer.flush();</div><div class="line">           	return;</div><div class="line">       	&#125;</div><div class="line">       	DiskFileItemFactory factory = new DiskFileItemFactory();</div><div class="line">       	factory.setSizeThreshold(MEMORY_THRESHOLD);                                 // 设置内存临界值 - 超过后将产生临时文件并存储于临时目录中</div><div class="line">       	factory.setRepository(new File(System.getProperty(&quot;java.io.tmpdir&quot;)));      // 设置临时存储目录</div><div class="line">       	ServletFileUpload upload = new ServletFileUpload(factory);</div><div class="line">       	upload.setFileSizeMax(MAX_FILE_SIZE);                                       // 设置最大文件上传值</div><div class="line">       	upload.setSizeMax(MAX_REQUEST_SIZE);                                        // 设置最大请求值</div><div class="line">       	String uploadPath = getServletContext().getRealPath(&quot;./&quot;)                   // 获取上传路径</div><div class="line">          	     + File.separator + UPLOAD_DIRECTORY;</div><div class="line"></div><div class="line">      		File uploadDir = new File(uploadPath);</div><div class="line">       	if (!uploadDir.exists()) &#123;</div><div class="line">           	uploadDir.mkdirs();</div><div class="line">       	&#125;</div><div class="line"></div><div class="line">       	try &#123;</div><div class="line">           	List&lt;FileItem&gt; fileItems = upload.parseRequest(req);                    // 解析请求的内容提取文件数据</div><div class="line">           	if (fileItems != null &amp;&amp; !fileItems.isEmpty()) &#123;</div><div class="line">               	for (FileItem item : fileItems) &#123;</div><div class="line">                   	String fileName = new File(item.getName()).getName();</div><div class="line">                   	String filePath = uploadPath + File.separator + fileName;</div><div class="line">                   	File storeFile = new File(filePath);</div><div class="line">                   	System.out.println(filePath);</div><div class="line">                   	item.write(storeFile);</div><div class="line">                   	req.setAttribute(&quot;message&quot;, &quot;文件上传成功&quot;);</div><div class="line">         	      	&#125;</div><div class="line">        	   	&#125;</div><div class="line">       	&#125; catch (Exception e) &#123;</div><div class="line">     	      		e.printStackTrace();</div><div class="line">     	      		req.setAttribute(&quot;message&quot;, e.getMessage());</div><div class="line">    	   	&#125;</div><div class="line">   	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </code></pre><p>注意：我采用的是servlet3.0的注释方法配置。所以没有在web.xml里进行配置。接着在相应的show.jsp里显示上传成功的结果就可以了。show.jsp略。</p>
 ]]></content>
     
