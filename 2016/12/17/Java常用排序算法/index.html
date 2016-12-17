@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java常用排序算法（一） | Phenix</title>
+
+  
+  <meta name="author" content="陈卓">
+  
+
+  
+  <meta name="description" content="冒泡法冒泡排序相对于其他算法来讲较为简单，很好理解。以升序为例，主要是比较相邻的两个元素，如果第一个比第二个大就对换两个元素的位置。接下来比较下一对相邻的元素，对每一对相邻的元素做重复操作。一次轮寻之后就将元素中最大的元素排在了末尾，接下来比较其他元素（注意，第二次轮寻就没必要再比较最后一个元素了，">
+  
+
+  
+  
+  <meta name="keywords" content="Java,排序">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Java常用排序算法（一）"/>
+
+  <meta property="og:site_name" content="Phenix"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Phenix" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Phenix</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Java常用排序算法（一）</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/17/Java常用排序算法/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-17T10:06:00.000Z">
+          2016-12-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="冒泡法"><a href="#冒泡法" class="headerlink" title="冒泡法"></a>冒泡法</h2><p>冒泡排序相对于其他算法来讲较为简单，很好理解。以升序为例，主要是比较相邻的两个元素，如果第一个比第二个大就对换两个元素的位置。接下来比较下一对相邻的元素，对每一对相邻的元素做重复操作。一次轮寻之后就将元素中最大的元素排在了末尾，接下来比较其他元素（注意，第二次轮寻就没必要再比较最后一个元素了，因为他已经排好了）。继续轮寻重复比较，完成第二次轮寻之后就将第二大的元素排在了倒数第二的位置上，以此类推。重复执行元素个数的次数轮寻之后，得到的就是排好序的元素列。代码如下：  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 冒泡法排序&lt;br/&gt;</div><div class="line"> * &lt;p&gt;</div><div class="line"> * &lt;li&gt;比较相邻的元素。如果第一个比第二个大，就交换他们两个。&lt;/li&gt;</div><div class="line"> * &lt;li&gt;对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。&lt;/li&gt;</div><div class="line"> * &lt;li&gt;针对所有的元素重复以上的步骤，除了最后一个。&lt;/li&gt;</div><div class="line"> * &lt;li&gt;持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。&lt;/li&gt;</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array 需要排序的整型数组</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> temp;</div><div class="line">    <span class="keyword">int</span> endNum = array.length - <span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; endNum; i++) &#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (endNum) - i; j++) &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &gt; array[j + <span class="number">1</span>]) &#123;</div><div class="line">                temp = array[j];</div><div class="line">                array[j] = array[j + <span class="number">1</span>];</div><div class="line">                array[j + <span class="number">1</span>] = temp;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>冒泡排序是一种稳定排序算法。当两个元素相同时，无论是否相邻，都不会将两个元素兑换，没有这个必要，代码也没有这种实现。只有不同的时候，才会根据是升序还是降序而对调。冒泡排序较为简单，属于入门级别的排序算法。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>冒泡排序的最坏时间复杂度为O(n^2)，最好的时间复杂度O(n)，平均时间复杂度为O(n^2)。  </p>
+<h2 id="快速排序法"><a href="#快速排序法" class="headerlink" title="快速排序法"></a>快速排序法</h2><p>快速排序法是对冒泡排序的一种改进。属于较难理解的排序算法。以升序为例，只需要一次轮寻排序，首先找到个基准点，一般是以首元素为基准点。将要排序的数组分为两部分，比基准点小的为一部分，排在基准点的左边；比基准点大的一部分，排在基准点的右边；然后按照此方法，在对两部分分别进行快速排序，整个排序过程可以递归进行。最后得到的数据就是有序数列。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 快速排序&lt;br/&gt;</div><div class="line"> * &lt;ul&gt;</div><div class="line"> * &lt;li&gt;从数列中挑出一个元素，称为“基准”&lt;/li&gt;</div><div class="line"> * &lt;li&gt;重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分割之后，</div><div class="line"> * 该基准是它的最后位置。这个称为分割（partition）操作。&lt;/li&gt;</div><div class="line"> * &lt;li&gt;递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。&lt;/li&gt;</div><div class="line"> * &lt;/ul&gt;</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array</div><div class="line"> * <span class="doctag">@param</span> start</div><div class="line"> * <span class="doctag">@param</span> end</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</div><div class="line">    <span class="keyword">if</span> (start &lt; end) &#123;</div><div class="line">        <span class="keyword">int</span> base = array[start];</div><div class="line">        <span class="keyword">int</span> temp;</div><div class="line">        <span class="keyword">int</span> i = start;</div><div class="line">        <span class="keyword">int</span> j = end;</div><div class="line"></div><div class="line">        <span class="keyword">do</span> &#123;</div><div class="line">            <span class="keyword">while</span> (array[i] &lt; base &amp;&amp; i &lt; end) &#123;</div><div class="line">                i++;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">while</span> (array[j] &gt; base &amp;&amp; j &gt; start) &#123;</div><div class="line">                j--;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (i &lt;= j) &#123;</div><div class="line">                temp = array[i];</div><div class="line">                array[i] = array[j];</div><div class="line">                array[j] = temp;</div><div class="line">                i++;</div><div class="line">                j--;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">while</span> (i &lt;= j);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (start &lt; j) &#123;</div><div class="line">            quickSort(array, start, j);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (end &gt; i) &#123;</div><div class="line">            quickSort(array, i, end);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>快速排序还有很多改进版，比如随机选择基准数，或者在区间内数据较少时直接使用另外的排序算法，以降低递归深度。有兴趣可以继续研究。而且，这个算法在笔试中考的几率非常高，属于必须掌握的一种排序算法。</p>
+<h3 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>快速排序的时间复杂度为O(N*logN)  </p>
+<h2 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h2><p>选择排序是一种很简单很直观的排序算法。以升序为例，从待排序的数组中选择出最小的，将他放在首位，再从剩余的数组元素中选择最小的，放在第二位，以此类推不断重复操作。最后的得到的就是排好序的数组。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 选择排序&lt;br/&gt;</div><div class="line"> * &lt;li&gt;在未排序序列中找到最小元素，存放到排序序列的起始位置&lt;/li&gt;</div><div class="line"> * &lt;li&gt;再从剩余未排序元素中继续寻找最小元素，然后放到排序序列第二位置。&lt;/li&gt;</div><div class="line"> * &lt;li&gt;以此类推，直到所有元素均排序完毕。&lt;/li&gt;</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">selectSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> temp, length = array.length;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</div><div class="line">        <span class="keyword">int</span> k = i;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = length - <span class="number">1</span>; j &gt; i; j--) &#123;</div><div class="line">            <span class="keyword">if</span> (array[j] &lt; array[k]) &#123;</div><div class="line">                k = j;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        temp = array[k];</div><div class="line">        array[k] = array[i];</div><div class="line">        array[i] = temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>选择排序属于不稳定的排序算法。在一趟选择，如果一个元素比当前元素小，而该小的元素又出现在一个和当前元素相等的元素后面，那么交换后稳定性就被破坏了。比较拗口，举个例子，序列5 8 5 2 9，我们知道第一遍选择第1个元素5会和2交换，那么原序列中两个5的相对前后顺序就被破坏了。</p>
+<h3 id="时间复杂度-2"><a href="#时间复杂度-2" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>选择排序的时间复杂度与冒泡排序的时间复杂度一样，同为O(n^2)  </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/Categories/Java/">Java</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/Tags/Java-排序/">Java,排序</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 陈卓
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

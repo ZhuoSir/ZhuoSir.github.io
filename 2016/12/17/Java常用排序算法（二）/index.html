@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java常用排序算法（二） | Phenix</title>
+
+  
+  <meta name="author" content="陈卓">
+  
+
+  
+  <meta name="description" content="插入排序插入排序分很多种，这里主要说明直接插入排序，插入排序很适合已经排好序并且有其他元素要插入指定位置的的元素列。将整个元素列分为两部分。第一部分为被排序。第二部分为未排序。以升序为例，从未排序中取出一个元素，在被排序的元素序列中轮寻找，如果该元素（已排序）大于新元素（未排序中取出的元素），将该元">
+  
+
+  
+  
+  <meta name="keywords" content="Java,排序">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="Java常用排序算法（二）"/>
+
+  <meta property="og:site_name" content="Phenix"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Phenix" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Phenix</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>Java常用排序算法（二）</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2016/12/17/Java常用排序算法（二）/" rel="bookmark">
+        <time class="entry-date published" datetime="2016-12-17T12:14:00.000Z">
+          2016-12-17
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h2 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h2><p>插入排序分很多种，这里主要说明直接插入排序，插入排序很适合已经排好序并且有其他元素要插入指定位置的的元素列。将整个元素列分为两部分。第一部分为被排序。第二部分为未排序。以升序为例，从未排序中取出一个元素，在被排序的元素序列中轮寻找，如果该元素（已排序）大于新元素（未排序中取出的元素），将该元素移到下一个位置。重复查找，直到已排序的元素小雨或等于新元素的位置，并将新元素插入到该位置中。再取出下一个元素，重复执行操作。最后得到的就是排好序的序列。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 插入排序&lt;br/&gt;</div><div class="line"> * &lt;ul&gt;</div><div class="line"> * &lt;li&gt;从第一个元素开始，该元素可以认为已经被排序&lt;/li&gt;</div><div class="line"> * &lt;li&gt;取出下一个元素，在已经排序的元素序列中从后向前扫描&lt;/li&gt;</div><div class="line"> * &lt;li&gt;如果该元素（已排序）大于新元素，将该元素移到下一位置&lt;/li&gt;</div><div class="line"> * &lt;li&gt;重复步骤3，直到找到已排序的元素小于或者等于新元素的位置&lt;/li&gt;</div><div class="line"> * &lt;li&gt;将新元素插入到该位置中&lt;/li&gt;</div><div class="line"> * &lt;li&gt;重复步骤2&lt;/li&gt;</div><div class="line"> * &lt;/ul&gt;</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSelect</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> length = array.length, temp, j;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; length; i++) &#123;</div><div class="line">        temp = array[i];</div><div class="line">        <span class="keyword">for</span> (j = i; j &gt; <span class="number">0</span> &amp;&amp; temp &lt; array[j - <span class="number">1</span>]; j--) &#123;</div><div class="line">            array[j] = array[j - <span class="number">1</span>];</div><div class="line">        &#125;</div><div class="line">        array[j] = temp;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>插入排序属于稳定的排序算法。</p>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>直接插入排序时间复杂度O(n^2)   </p>
+<h2 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h2><p>归并排序属于较难理解的排序算法，是冯诺依曼发明的算法。该算法采用分治法的一种典型应用。整个算法分为两部分，递归分解（归），分别合并（并）。先将序列逐步分解分为多个单个元素的序列，然后再执行合并，合并操作较为复杂，合并的时候主要有两个序列，逐步比较两个数组，首先获取两个数组中较小的一个，知道某一个到达底部，再将另一个剩下的部分顺序取出。这样就获得一个排好序的新序列，在递归执行下一个序列合并操作。代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 归并排序&lt;br/&gt;</div><div class="line"> * &lt;ul&gt;</div><div class="line"> * &lt;li&gt;申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列&lt;/li&gt;</div><div class="line"> * &lt;li&gt;设定两个指针，最初位置分别为两个已经排序序列的起始位置&lt;/li&gt;</div><div class="line"> * &lt;li&gt;比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到下一位置&lt;/li&gt;</div><div class="line"> * &lt;li&gt;重复步骤3直到某一指针达到序列尾&lt;/li&gt;</div><div class="line"> * &lt;li&gt;将另一序列剩下的所有元素直接复制到合并序列尾&lt;/li&gt;</div><div class="line"> * &lt;/ul&gt;</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> t = <span class="number">1</span>;<span class="comment">// 每组元素个数</span></div><div class="line">    <span class="keyword">int</span> size = right - left + <span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (t &lt; size) &#123;</div><div class="line">        <span class="keyword">int</span> s = t;<span class="comment">// 本次循环每组元素个数</span></div><div class="line">        t = <span class="number">2</span> * s;</div><div class="line">        <span class="keyword">int</span> i = left;</div><div class="line">        <span class="keyword">while</span> (i + (t - <span class="number">1</span>) &lt; size) &#123;</div><div class="line">            merge(array, i, i + (s - <span class="number">1</span>), i + (t - <span class="number">1</span>));</div><div class="line">            i += t;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (i + (s - <span class="number">1</span>) &lt; right)</div><div class="line">            merge(array, i, i + (s - <span class="number">1</span>), right);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 归并算法实现</div><div class="line"> *</div><div class="line"> * <span class="doctag">@param</span> array</div><div class="line"> * <span class="doctag">@param</span> low 低位</div><div class="line"> * <span class="doctag">@param</span> mid 中位</div><div class="line"> * <span class="doctag">@param</span> high 高位</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> i = low;</div><div class="line">    <span class="keyword">int</span> j = mid + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> k = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span>[] tmpArray = <span class="keyword">new</span> <span class="keyword">int</span>[high - low + <span class="number">1</span>];</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= high) &#123;</div><div class="line">        <span class="keyword">if</span> (array[i] &lt;= array[j]) &#123;</div><div class="line">            tmpArray[k] = array[i];</div><div class="line">            i++;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            tmpArray[k] = array[j];</div><div class="line">            j++;</div><div class="line">        &#125;</div><div class="line">        k++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span> (i &lt;= mid) &#123;</div><div class="line">        tmpArray[k] = array[i];</div><div class="line">        i++;</div><div class="line">        k++;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (j &lt;= high) &#123;</div><div class="line">        tmpArray[k] = array[j];</div><div class="line">        j++;</div><div class="line">        k++;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>, i = low; i &lt;= high; i++, k++) &#123;</div><div class="line">        array[i] = tmpArray[k];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><p>归并排序的时间复杂度为O(nlogn) </p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/Categories/Java/">Java</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/Tags/Java-排序/">Java,排序</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2016 陈卓
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
