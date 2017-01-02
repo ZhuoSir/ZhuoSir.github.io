@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-12-25T12:49:27.000Z</updated>
+  <updated>2017-01-02T12:52:48.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java对象的创建过程</title>
+    <link href="http://yoursite.com/2017/01/02/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
+    <id>http://yoursite.com/2017/01/02/Java对象的创建过程/</id>
+    <published>2017-01-02T12:44:30.000Z</published>
+    <updated>2017-01-02T12:52:48.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/images/classLoader.png" alt="Alt text"></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/classLoader.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/Categories/Java/"/>
+    
+    
+      <category term="Java,对象" scheme="http://yoursite.com/Tags/Java-%E5%AF%B9%E8%B1%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>Java内存基础知识</title>
