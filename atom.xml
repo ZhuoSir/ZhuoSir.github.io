@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-02T12:52:48.000Z</updated>
+  <updated>2017-01-02T13:12:04.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,15 +20,34 @@
     <link href="http://yoursite.com/2017/01/02/Java%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E8%BF%87%E7%A8%8B/"/>
     <id>http://yoursite.com/2017/01/02/Java对象的创建过程/</id>
     <published>2017-01-02T12:44:30.000Z</published>
-    <updated>2017-01-02T12:52:48.000Z</updated>
+    <updated>2017-01-02T13:12:04.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="/images/classLoader.png" alt="Alt text"></p>
-]]></content>
+    <content type="html"><![CDATA[<p>Java程序执行的过程，如图：<br><img src="/images/classLoader.png" alt="Alt text"></p>
+<h2 id="简要过程"><a href="#简要过程" class="headerlink" title="简要过程"></a>简要过程</h2><p>类加载完成后，主线程运行static main() 时在虚拟机中栈建栈，压栈  </p>
+<p>执行new Object()时，在堆heap中创建对象。  </p>
+<p>对象创建过程就是堆上分配实例对象内容空间的过程。在堆中对象内存空间的具体结构如下：<br><img src="/images/heap.png" alt="Alt text"></p>
+<h3 id="对象头"><a href="#对象头" class="headerlink" title="对象头"></a>对象头</h3><p>这个头包括两个部分，第一部分用于存储自身运行时的数据例如GC标志位、哈希码、锁状态等信息。第二部分存放指向方法区类静态数据的指针。  </p>
+<h3 id="实例变量"><a href="#实例变量" class="headerlink" title="实例变量"></a>实例变量</h3><p>存放类的属性数据信息，包括父类的属性信息。如果是数组的实例部分还包括数组的长度。这部分内存按4字节对齐。  </p>
+<h3 id="填充数据"><a href="#填充数据" class="headerlink" title="填充数据"></a>填充数据</h3><p>这是因为虚拟机要求对象起始地址必须是8字节的整数倍。填充数据不是必须存在的，仅仅是为了字节对齐。HotSpot VM的自动内存管理要求对象起始地址必须是8字节的整数倍。对象头本身是8的倍数，当对象的实例变量数据不是8的倍数，便需要填充数据来保证8字节的对齐。另外，堆上对象内存的分配是并发进行的.</p>
+<p>然后执行类的构造函数初始化。  </p>
+<p>Java虚拟机规范规定该区域可抛出OutOfMemoryError。  </p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>例如：</p>
+<pre><code class="java">Dog dog = <span class="keyword">new</span> Dog();
+</code></pre>
+<p>当虚拟机执行到new指令时，它先在常量池中查找“Dog”，看能否定位到Dog类的符号引用；如果能，说明这个类已经被加载到方法区了，则继续执行。如果没有，就让Class Loader先执行类的加载。</p>
+<p>然后，虚拟机开始为该对象分配内存，对象所需要的内存大小在类加载完成后就已经确定了。这时候只要在堆中按需求分配空间即可。具体分配内存时有两种方式，第一种，内存绝对规整，那么只要在被占用内存和空闲内存间放置指针即可，每次分配空间时只要把指针向空闲内存空间移动相应距离即可，当某对象被GC回收后，则需要进行某些对象内存的迁移。第二种，空闲内存和非空闲内存夹杂在一起，那么就需要用一个列表来记录堆内存的使用情况，然后按需分配内存。</p>
+<p>对于多线程的情况，如何确保一个线程分配了对象内存但尚未修改内存管理指针时，其他线程又分配该块内存而覆盖的情况？有一种方法，就是让每一个线程在堆中先预分配一小块内存（TLAB本地线程分配缓冲），每个线程只在自己的内存中分配内存。但对象本身按其访问属性是可以线程共享访问的。</p>
+<p>内存分配到后，虚拟机将分配的内存空间都初始化为零值(不包括对象头)。实例变量按变量类型初始化相应的默认值（数值型为0，boolan为false），所以实例变量不赋初值也能使用。接着设置对象头信息，比如对象的哈希值，GC分代年龄等。</p>
+<p>从虚拟机角度，此时一个新的对象已经创建完成了。但从我们程序运行的角度，新建对象才刚刚开始，对象的构造方法还没有执行。只有执行完构造方法，按构造方法进行初始化后，对象才是彻底创建完成了。</p>
+<p>构造函数的执行还涉及到调用父类构造器，如果没有显式声明调用父类构造器，则自动添加默认构造器。</p>
+<p>到此，new运算符可以返回堆中这个对象的引用了。</p>
+<p>此刻，会根据dog这个变量是实例变量、局部变量或静态变量的不同将引用放在不同的地方：</p>
+<h3 id="如果dog局部变量，dog变量在栈帧的局部变量表，这个对象的引用就放在栈帧。"><a href="#如果dog局部变量，dog变量在栈帧的局部变量表，这个对象的引用就放在栈帧。" class="headerlink" title="如果dog局部变量，dog变量在栈帧的局部变量表，这个对象的引用就放在栈帧。"></a>如果dog局部变量，dog变量在栈帧的局部变量表，这个对象的引用就放在栈帧。</h3><h3 id="如果dog是实例变量，dog变量在堆中，对象的引用就放在堆。"><a href="#如果dog是实例变量，dog变量在堆中，对象的引用就放在堆。" class="headerlink" title="如果dog是实例变量，dog变量在堆中，对象的引用就放在堆。"></a>如果dog是实例变量，dog变量在堆中，对象的引用就放在堆。</h3><h3 id="如果dog是静态变量，dog变量在方法区，对象的引用就放在方法区。"><a href="#如果dog是静态变量，dog变量在方法区，对象的引用就放在方法区。" class="headerlink" title="如果dog是静态变量，dog变量在方法区，对象的引用就放在方法区。"></a>如果dog是静态变量，dog变量在方法区，对象的引用就放在方法区。</h3>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;/images/classLoader.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
-
+      &lt;p&gt;Java程序执行的过程，如图：&lt;br&gt;&lt;img src=&quot;/images/classLoader.png&quot; alt=&quot;Alt text&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;简要过程&quot;&gt;&lt;a href=&quot;#简要过程&quot; class=&quot;headerlink&quot; title=&quot;简要过程&quot;&gt;&lt;
     
     </summary>
     
