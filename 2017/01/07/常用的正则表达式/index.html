@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常用的正则表达式 | Phenix</title>
+
+  
+  <meta name="author" content="陈卓">
+  
+
+  
+  <meta name="description" content="校验密码强度密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。1^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).&amp;#123;8,10&amp;#125;$
+校验中文字符串仅能是中文1^[\\u4e00-\\u9fa5]&amp;#123;0,&amp;#125;$
+由数字、">
+  
+
+  
+  
+  <meta name="keywords" content="正则表达式">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="常用的正则表达式"/>
+
+  <meta property="og:site_name" content="Phenix"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Phenix" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Phenix</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>常用的正则表达式</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/01/07/常用的正则表达式/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-01-07T10:38:00.000Z">
+          2017-01-07
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="校验密码强度"><a href="#校验密码强度" class="headerlink" title="校验密码强度"></a>校验密码强度</h3><p>密码的强度必须是包含大小写字母和数字的组合，不能使用特殊字符，长度在8-10之间。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).&#123;8,10&#125;$</div></pre></td></tr></table></figure></p>
+<h3 id="校验中文"><a href="#校验中文" class="headerlink" title="校验中文"></a>校验中文</h3><p>字符串仅能是中文<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^[\\u4e00-\\u9fa5]&#123;0,&#125;$</div></pre></td></tr></table></figure></p>
+<h3 id="由数字、26个英文字母或下划线组成的字符串"><a href="#由数字、26个英文字母或下划线组成的字符串" class="headerlink" title="由数字、26个英文字母或下划线组成的字符串"></a>由数字、26个英文字母或下划线组成的字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^\\w+$</div></pre></td></tr></table></figure>
+<h3 id="校验E-Mail-地址"><a href="#校验E-Mail-地址" class="headerlink" title="校验E-Mail 地址"></a>校验E-Mail 地址</h3><p>同密码一样，下面是E-mail地址合规性的正则检查语句。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[\\w!#$%&amp;&apos;*+/=?^_`&#123;|&#125;~-]+(?:\\.[\\w!#$%&amp;&apos;*+/=?^_`&#123;|&#125;~-]+)*@(?:[\\w](?:[\\w-]*[\\w])?\\.)+[\\w](?:[\\w-]*[\\w])?</div></pre></td></tr></table></figure></p>
+<h3 id="校验身份证号码"><a href="#校验身份证号码" class="headerlink" title="校验身份证号码"></a>校验身份证号码</h3><p>下面是身份证号码的正则校验。15 或 18位。 </p>
+<p>15位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^[1-9]\\d&#123;7&#125;((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d&#123;3&#125;$</div></pre></td></tr></table></figure></p>
+<p>18位：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^[1-9]\\d&#123;5&#125;[1-9]\\d&#123;3&#125;((0\\d)|(1[0-2]))(([0|1|2]\\d)|3[0-1])\\d&#123;3&#125;([0-9]|X)$</div></pre></td></tr></table></figure></p>
+<h3 id="校验日期"><a href="#校验日期" class="headerlink" title="校验日期"></a>校验日期</h3><p>“yyyy-mm-dd“ 格式的日期校验，已考虑平闰年。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(?:(?!0000)[0-9]&#123;4&#125;-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-8])|(?:0[13-9]|1[0-2])-(?:29|30)|(?:0[13578]|1[02])-31)|(?:[0-9]&#123;2&#125;(?:0[48]|[2468][048]|[13579][26])|(?:0[48]|[2468][048]|[13579][26])00)-02-29)$</div></pre></td></tr></table></figure>
+<h3 id="校验金额"><a href="#校验金额" class="headerlink" title="校验金额"></a>校验金额</h3><p>金额校验，精确到2位小数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^[0-9]+(.[0-9]&#123;2&#125;)?$</div></pre></td></tr></table></figure>
+<h3 id="校验手机号"><a href="#校验手机号" class="headerlink" title="校验手机号"></a>校验手机号</h3><p>下面是国内 13、15、18开头的手机号正则表达式。（可根据目前国内收集号扩展前两位开头号码）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d&#123;8&#125;$</div></pre></td></tr></table></figure>
+<h3 id="判断IE的版本"><a href="#判断IE的版本" class="headerlink" title="判断IE的版本"></a>判断IE的版本</h3><p>IE目前还没被完全取代，很多页面还是需要做版本兼容，下面是IE版本检查的表达式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^.*MSIE [5-8](?:\\.[0-9]+)?(?!.*Trident\\/[5-9]\\.0).*$</div></pre></td></tr></table></figure>
+<h3 id="校验IP-v4地址"><a href="#校验IP-v4地址" class="headerlink" title="校验IP-v4地址"></a>校验IP-v4地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.)&#123;3&#125;(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\b</div></pre></td></tr></table></figure>
+<h3 id="校验IP-v6地址"><a href="#校验IP-v6地址" class="headerlink" title="校验IP-v6地址"></a>校验IP-v6地址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(([0-9a-fA-F]&#123;1,4&#125;:)&#123;7,7&#125;[0-9a-fA-F]&#123;1,4&#125;|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,7&#125;:|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,6&#125;:[0-9a-fA-F]&#123;1,4&#125;|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,5&#125;(:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,2&#125;|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,4&#125;(:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,3&#125;|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,3&#125;(:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,4&#125;|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,2&#125;(:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,5&#125;|[0-9a-fA-F]&#123;1,4&#125;:((:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,6&#125;)|:((:[0-9a-fA-F]&#123;1,4&#125;)&#123;1,7&#125;|:)|fe80:(:[0-9a-fA-F]&#123;0,4&#125;)&#123;0,4&#125;%[0-9a-zA-Z]&#123;1,&#125;|::(ffff(:0&#123;1,4&#125;)&#123;0,1&#125;:)&#123;0,1&#125;((25[0-5]|(2[0-4]|1&#123;0,1&#125;[0-9])&#123;0,1&#125;[0-9])\\.)&#123;3,3&#125;(25[0-5]|(2[0-4]|1&#123;0,1&#125;[0-9])&#123;0,1&#125;[0-9])|([0-9a-fA-F]&#123;1,4&#125;:)&#123;1,4&#125;:((25[0-5]|(2[0-4]|1&#123;0,1&#125;[0-9])&#123;0,1&#125;[0-9])\\.)&#123;3,3&#125;(25[0-5]|(2[0-4]|1&#123;0,1&#125;[0-9])&#123;0,1&#125;[0-9]))</div></pre></td></tr></table></figure>
+<h3 id="检查URL的前缀"><a href="#检查URL的前缀" class="headerlink" title="检查URL的前缀"></a>检查URL的前缀</h3><p>应用开发中很多时候需要区分请求是HTTPS还是HTTP，通过下面的表达式可以取出一个url的前缀然后再逻辑判断。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (!s.match(/^[a-zA-Z]+:\\/\\<span class="comment">//)) </span></div><div class="line">&#123; </div><div class="line">    s = <span class="string">'http://'</span> + s; </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="提取URL链接"><a href="#提取URL链接" class="headerlink" title="提取URL链接"></a>提取URL链接</h3><p>下面的这个表达式可以筛选出一段文本中的URL。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^(f|ht)&#123;1&#125;(tp|tps):\\/\\/([\\w-]+\\.)+[\\w-]+(\\/[\\w- ./?%&amp;=]*)?</div></pre></td></tr></table></figure>
+<h3 id="文件路径及扩展名校验"><a href="#文件路径及扩展名校验" class="headerlink" title="文件路径及扩展名校验"></a>文件路径及扩展名校验</h3><p>验证windows下文件路径和扩展名（下面的例子中为.txt文件）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^([a-zA-Z]\\:|\\\\)\\\\([^\\\\]+\\\\)*[^\\/:*?&quot;&lt;&gt;|]+\\.txt(l)?$</div></pre></td></tr></table></figure>
+<h3 id="提取Color-Hex-Codes"><a href="#提取Color-Hex-Codes" class="headerlink" title="提取Color Hex Codes"></a>提取Color Hex Codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">^#([A-Fa-f0-9]&#123;6&#125;|[A-Fa-f0-9]&#123;3&#125;)$</div></pre></td></tr></table></figure>
+<h3 id="提取网页图片"><a href="#提取网页图片" class="headerlink" title="提取网页图片"></a>提取网页图片</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">\\&lt; *[img][^\\\\&gt;]*[src] *= *[\\&quot;\\&apos;]&#123;0,1&#125;([^\\&quot;\\&apos;\\ &gt;]*)</div></pre></td></tr></table></figure>
+<h3 id="提取页面超链接"><a href="#提取页面超链接" class="headerlink" title="提取页面超链接"></a>提取页面超链接</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(&lt;a\\s*(?!.*\\brel=)[^&gt;]*)(href=&quot;https?:\\/\\/)((?!(?:(?:www\\.)?&apos;.implode(&apos;|(?:www\\.)?&apos;, $follow_list).&apos;))[^&quot;]+)&quot;((?!.*\\brel=)[^&gt;]*)(?:[^&gt;]*)&gt;</div></pre></td></tr></table></figure>
+<h3 id="匹配HTML标签"><a href="#匹配HTML标签" class="headerlink" title="匹配HTML标签"></a>匹配HTML标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;\\/?\\w+((\\s+\\w+(\\s*=\\s*(?:&quot;.*?&quot;|&apos;.*?&apos;|[\\^&apos;&quot;&gt;\\s]+))?)+\\s*|\\s*)\\/?&gt;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/Categories/正则表达式/">正则表达式</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/Tags/正则表达式/">正则表达式</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 陈卓
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>
