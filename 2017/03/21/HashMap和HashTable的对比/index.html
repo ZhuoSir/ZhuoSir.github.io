@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>HashMap和HashTable的对比 | Phenix</title>
+
+  
+  <meta name="author" content="陈卓">
+  
+
+  
+  <meta name="description" content="HashMapHashMap是实现了Map接口的实现类，是将键映射到值得对象，其中键和值都是对象，并且不能包含重复键（key），但是可以包含重复值（value）。HashMap允许null key 和 null value的存在，但是HashTable是不允许的，并且HashMap不是线程安全的，在">
+  
+
+  
+  
+  <meta name="keywords" content="HashTable, HashMap">
+  
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="HashMap和HashTable的对比"/>
+
+  <meta property="og:site_name" content="Phenix"/>
+
+  
+  <meta property="og:image" content="/favicon.ico"/>
+  
+
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="Phenix" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+</head>
+
+
+<body>
+<div class="blog">
+  <div class="content">
+
+    <header>
+  <div class="site-branding">
+    <h1 class="site-title">
+      <a href="/">Phenix</a>
+    </h1>
+    <p class="site-description"></p>
+  </div>
+  <nav class="site-navigation">
+    <ul>
+      
+        <li><a href="/">主页</a></li>
+      
+        <li><a href="/archives">归档</a></li>
+      
+    </ul>
+  </nav>
+</header>
+
+    <main class="site-main posts-loop">
+    <article>
+
+  
+    
+    <h3 class="article-title"><span>HashMap和HashTable的对比</span></h3>
+    
+  
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2017/03/21/HashMap和HashTable的对比/" rel="bookmark">
+        <time class="entry-date published" datetime="2017-03-21T03:18:00.000Z">
+          2017-03-21
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
+      
+        <h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap是实现了Map接口的实现类，是将键映射到值得对象，其中键和值都是对象，并且不能包含重复键（key），但是可以包含重复值（value）。HashMap允许null key 和 null value的存在，但是HashTable是不允许的，并且HashMap不是线程安全的，在多线程环境中，需要实现外同步（Synchronize）；其实HashMap属于HashTable的轻量级实现；因为是非线程安全，所以效率上要高于HashTable；</p>
+<h3 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h3><p>HashTable不仅实现了Map接口，而且继承了Dictionary类，不允许出现key, value 为null的情况，并且属于线程安全的，不用在程序外部实现外同步，HashTable所有的方法都是同步的（Synchronize）；在方法上，HashTable存在contains方法，但是HashMap有containsKey,containsValue两方法；</p>
+<h3 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h3><p>在效率上方面，两个类都是hash/rehash算法，所以差别不大，只是HashMap是非线程安全，所以效率可能略高；</p>
+
+      
+    </div>
+
+  </div>
+
+  <div class="article-footer">
+    <div class="article-meta pull-left">
+
+    
+      
+
+    <span class="post-categories">
+      <i class="icon-categories"></i>
+        <a href="/Categories/Java/">Java</a>
+    </span>
+    
+
+    
+    
+
+    <span class="post-tags">
+      <i class="icon-tags"></i>
+        <a href="/Tags/HashTable-HashMap/">HashTable, HashMap</a>
+    </span>
+    
+
+    </div>
+
+    
+  </div>
+</article>
+
+  
+
+
+
+    </main>
+
+    <footer class="site-footer">
+  <p class="site-info">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
+    
+    &copy; 2017 陈卓
+    
+  </p>
+</footer>
+    
+  </div>
+</div>
+</body>
+</html>

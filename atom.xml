@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-20T15:47:54.000Z</updated>
+  <updated>2017-03-21T03:31:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HashMap和HashTable的对比</title>
+    <link href="http://yoursite.com/2017/03/21/HashMap%E5%92%8CHashTable%E7%9A%84%E5%AF%B9%E6%AF%94/"/>
+    <id>http://yoursite.com/2017/03/21/HashMap和HashTable的对比/</id>
+    <published>2017-03-21T03:18:00.000Z</published>
+    <updated>2017-03-21T03:31:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h3><p>HashMap是实现了Map接口的实现类，是将键映射到值得对象，其中键和值都是对象，并且不能包含重复键（key），但是可以包含重复值（value）。HashMap允许null key 和 null value的存在，但是HashTable是不允许的，并且HashMap不是线程安全的，在多线程环境中，需要实现外同步（Synchronize）；其实HashMap属于HashTable的轻量级实现；因为是非线程安全，所以效率上要高于HashTable；</p>
+<h3 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h3><p>HashTable不仅实现了Map接口，而且继承了Dictionary类，不允许出现key, value 为null的情况，并且属于线程安全的，不用在程序外部实现外同步，HashTable所有的方法都是同步的（Synchronize）；在方法上，HashTable存在contains方法，但是HashMap有containsKey,containsValue两方法；</p>
+<h3 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h3><p>在效率上方面，两个类都是hash/rehash算法，所以差别不大，只是HashMap是非线程安全，所以效率可能略高；</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;HashMap&quot;&gt;&lt;a href=&quot;#HashMap&quot; class=&quot;headerlink&quot; title=&quot;HashMap&quot;&gt;&lt;/a&gt;HashMap&lt;/h3&gt;&lt;p&gt;HashMap是实现了Map接口的实现类，是将键映射到值得对象，其中键和值都是对象，并且不能包含重复
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/Categories/Java/"/>
+    
+    
+      <category term="HashTable, HashMap" scheme="http://yoursite.com/Tags/HashTable-HashMap/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库事务的四大特性以及事务的隔离级别</title>
